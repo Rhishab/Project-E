@@ -1,93 +1,62 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Project-E</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#map{
+    height: 1000px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+</style>
+
+<body>
     <div id="map"></div>
     <script>
-      var map;
-      function initMap(){
-        map = new google.maps.Map(document.getElementById('map'),{
-          center: {lat: 27.703710, lng: 85.321322},
-          zoom: 13
-        });
-        //add marker
-        // var marker=new google.maps.Marker({
-        //   position: {lat: 27.703317, lng: 85.315743},
-        //   map:map
-        //   // icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png,'
-        // });
+        var map,infoWindows;
+        function initMap(){{var options = {
+                center: { lat: 27.703317, lng: 85.315743},
+                zoom: 13
 
-        // var infoWindow = new google.maps.InfoWindow({
-        //   content:'<h1>Center</h1>'
-        // });
-  
-        // marker.addListener('click', function(){
-        //   infoWindow.open(map, marker);
-        // });
-
-
-        
-
-
-        // marker.addListener('click', function(){
-        //   infoWindow.open(map, marker);
-        // }); 
-        
-        //adding main center marker
-        addMarker({lat: 27.703317, lng: 85.315743});
-        //adding Polics Station Markers
-        //1) Maharajgunj police station-
-        addMarker({lat: 27.7400064, lng: 85.3196088});
-        //2) Metropolitan Polce station Chagal
-        addMarker({lat: 27.7051295, lng: 85.2887636});
-        //3) Samudayik Prahari Sewa Kendra
-        addMarker({lat: 27.7051295, lng: 85.2887636});
-        //4) Kalimati Police station
-        addMarker({lat: 27.7051295, lng: 85.2887636});
-        // 5) Koteshwor Police station-
-        addMarker({lat: 27.6899304, lng: 85.3240414});
-        // 6) Budhanilkantha Poice Station
-        addMarker({lat: 27.7769232, lng: 85.3616151});
-        //7) Armed Police Force Disaster Relief Kathmandu Valley Team
-        addMarker({lat: 27.6917352, lng: 85.3460433});
-        //Tinkune Police station
-        addMarker({lat: 27.6881252, lng: 85.3406359});
-        //8)Imadol Police station
-        addMarker({lat: 27.6959674, lng: 85.2825708});
-        //9)Thapathali Police Station
-        addMarker({lat: 27.6890549, lng:85.3182742});
+            };
+            var map=new google.maps.Map(document.getElementById('map'),options);
 
 
 
-
-        function addMarker(coords){
-          var marker=new google.maps.Marker({
-          position:coords,
-          map:map
-          // icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png,'
-        });
-
+        };
+        var location =[
+            ["Maharajgunj police station",  27.7400064, 85.3196088],
+            ["Metropolitan Polce station Chagal", 27.7051295,  85.2887636]
+        ];
+        var infowindow = new google.maps.InfoWindow();
+        var marker,i;
+        for(i=0;i<location.length;i++) {
+            marker= new google.maps.Marker({
+                position: new google.maps.LatLng(location[i][1], location[i][2]),
+                map:map
+            });
+            google.maps.event.addListener(marker, 'click', (function(marker, location) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
         }
-      }
+      })(marker, i));
+    }
+        }
+            
+
+
+      
+
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap"
-    ></script>
-  </body>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap"></script>
+
+</body>
 </html>
