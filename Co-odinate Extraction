@@ -16,4 +16,20 @@
             console.log(arr[x])
 
         }
+        
+        //new one UPDATE- 23rd SEP
+        
+        
+        var a = 2
+        var vex = [{lat: 27.753916, lng: 85.296510},
+        {lat:27.751561, lng: 85.304660},
+        {lat: 27.743358, lng: 85.309808},
+        {lat:27.743282, lng: 85.300714}
+        ];
+        for(var x=0;x<=4;x++){
+            console.log(vex[x]['lat']);
+            console.log(vex[x]['lng']);
+
+        };
+
     </script>
