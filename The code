@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Infow-Window-Test</title>
+    <title>Data Extraction2</title>
     <style>
     #map{
         height:1000px;
@@ -37,12 +37,43 @@
                             infowindow.open(map, marker);
                             });
                             // Define the LatLng coordinates for the polygon's path.
+
                             var triangleCoords = [
                                 {lat: 27.753916, lng: 85.296510},
                                 {lat:27.751561, lng: 85.304660},
                                 {lat: 27.743358, lng: 85.309808},
                                 {lat:27.743282, lng: 85.300714}
                                 ];
+                                var triangleCoords2 = [
+                                {lat:27.710490, lng: 85.427835},
+                                {lat:27.715657, lng: 85.438988},
+                                {lat: 27.731308, lng: 85.429052},
+                                {lat:27.719152, lng: 85.405201}
+                                ];
+                                var triangleCoords3 = [
+                                {lat: 27.710490, lng: 85.381037},
+                                {lat: 27.709486, lng: 85.384469},
+                                {lat: 27.701179, lng: 85.417700},
+                                {lat:27.699963, lng: 85.405681},
+                                {lat:27.713945, lng: 85.439446}
+                                ];
+                                var triangleCoords4 = [
+                                {lat: 27.626828, lng: 85.304033},
+                                {lat:27.630998, lng: 85.306523},
+                                {lat: 27.631176, lng: 85.301329},
+                                {lat:27.629579, lng: 85.301415},
+                                {lat:27.628324, lng: 85.302789}
+
+                                ];
+                                var triangleCoords5 = [
+                                {lat: 27.736395, lng:85.312178},
+                                {lat: 27.741105, lng:85.318359},
+                                {lat: 27.754626, lng: 85.316814},
+                                {lat: 27.753562, lng: 85.304279},
+                                {lat:27.746270, lng: 85.305309}
+
+                                ];
+
                                 // Construct the polygon.
                                 var bermudaTriangle = new google.maps.Polygon({
                                     paths: triangleCoords,
@@ -52,8 +83,45 @@
                                     fillColor: '#FF0000',
                                     fillOpacity: 0.35
                                     });
+                                    var bermudaTriangle2 = new google.maps.Polygon({
+                                    paths: triangleCoords2,
+                                    strokeColor: '#FF0000',
+                                    strokeOpacity: 0.8,
+                                    strokeWeight: 2,
+                                    fillColor: '#FF0000',
+                                    fillOpacity: 0.35
+                                    });
+                                    var bermudaTriangle3 = new google.maps.Polygon({
+                                    paths: triangleCoords3,
+                                    strokeColor: '#FF0000',
+                                    strokeOpacity: 0.8,
+                                    strokeWeight: 2,
+                                    fillColor: '#FF0000',
+                                    fillOpacity: 0.35
+                                    });
+                                    var bermudaTriangle4 = new google.maps.Polygon({
+                                    paths: triangleCoords4,
+                                    strokeColor: '#FF0000',
+                                    strokeOpacity: 0.8,
+                                    strokeWeight: 2,
+                                    fillColor: '#FF0000',
+                                    fillOpacity: 0.35
+                                    });
+                                    var bermudaTriangle5 = new google.maps.Polygon({
+                                    paths: triangleCoords5,
+                                    strokeColor: '#FF0000',
+                                    strokeOpacity: 0.8,
+                                    strokeWeight: 2,
+                                    fillColor: '#FF0000',
+                                    fillOpacity: 0.35
+                                    });
                                     bermudaTriangle.setMap(map);
+                                    bermudaTriangle2.setMap(map);
+                                    bermudaTriangle3.setMap(map);
+                                    bermudaTriangle4.setMap(map);
+                                    bermudaTriangle5.setMap(map);
                                     };
+                                    
                                 
 
 
