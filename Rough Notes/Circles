@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Circles</title>
+    <title>Circles Wild</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -20,11 +20,9 @@
   </head>
   <body>
     <div id="map"></div>
-    <script>
-      // This example creates circles on the map, representing populations in North
-      // America.
+    <script>    
 
-      // First, create an object containing LatLng and population for each city.
+      
       var data = {
           
         chicago: {
@@ -65,9 +63,23 @@
           center: {lat:27.703803, lng: 85.316789},
           mapTypeId: 'terrain'
         });
+        //how to make "I am here" marker
+        var contentString = "You are here"
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+            });
+            var marker = new google.maps.Marker({
+                position: map.center,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                    });
+            
 
         // Construct the circle for each value in citymap.
-        // Note: We scale the area of the circle based on the population.
+        // Note: We scale the area of the circle based on the DangerLevel.
         for (var city in data) {
           // Add the circle for this city to the map.
           var cityCircle = new google.maps.Circle({
