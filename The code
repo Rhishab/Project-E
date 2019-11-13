@@ -1,139 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Extraction2</title>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Circles Real</title>
     <style>
-    #map{
-        height:1000px;
-        width:1000px;
-        margin: 0px;
-        padding: 0px;
-
-    }
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="map"></div>
-    <script>
-        function initMap() {
-            var uluru = {lat:27.703803, lng: 85.316789};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: uluru
+    <script>    
+//      data Here    !!!!!
+      
+      var data = {
+          
+        chicago: {
+          center: {lat: 27.753916, lng: 85.296510},
+          Dangerlevel: 6.5
+        },
+        Danger001: {
+          center:{lat:27.710490, lng: 85.427835},
+          Dangerlevel: 8.4
+        },
+        
+        // Danger003: {
+        //   center: {lat: 49.25, lng: -123.1},
+        //   Dangerlevel: 6.0
+        // },
+        Danger004: {
+            center: {lat: 27.710490, lng: 85.381037},
+            Dangerlevel:6.0
+        },
+       
+        Danger006 :{
+            center: {lat: 27.736395, lng:85.312178},
+            Dangerlevel:6
+        }
+      };
+      var data2= {
+        Danger002: {
+          center: {lat: 34.052, lng: -118.243},
+          Dangerlevel: 3.8
+        },
+        Danger005: {
+            center: {lat: 27.626828, lng: 85.304033},
+            Dangerlevel:4
+
+
+        }
+
+       
+      };
+      var data3= {
+
+      }
+
+      function initMap() {
+        // Create the map.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat:27.703803, lng: 85.316789},
+          mapTypeId: 'terrain'
+        });
+        //how to make "I am here" marker
+        var contentString = "You are here"
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+            });
+            var marker = new google.maps.Marker({
+                position: map.center,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
                 });
-                var contentString = "You are here"
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
                     });
-                    var marker = new google.maps.Marker({
-                        position: uluru,
-                        map: map,
-                        title: 'Uluru (Ayers Rock)'
-                        });
-                        marker.addListener('click', function() {
-                            infowindow.open(map, marker);
-                            });
-                            // Define the LatLng coordinates for the polygon's path.
+            
 
-                            var triangleCoords = [
-                                {lat: 27.753916, lng: 85.296510},
-                                {lat:27.751561, lng: 85.304660},
-                                {lat: 27.743358, lng: 85.309808},
-                                {lat:27.743282, lng: 85.300714}
-                                ];
-                                var triangleCoords2 = [
-                                {lat:27.710490, lng: 85.427835},
-                                {lat:27.715657, lng: 85.438988},
-                                {lat: 27.731308, lng: 85.429052},
-                                {lat:27.719152, lng: 85.405201}
-                                ];
-                                var triangleCoords3 = [
-                                {lat: 27.710490, lng: 85.381037},
-                                {lat: 27.709486, lng: 85.384469},
-                                {lat: 27.701179, lng: 85.417700},
-                                {lat:27.699963, lng: 85.405681},
-                                {lat:27.713945, lng: 85.439446}
-                                ];
-                                var triangleCoords4 = [
-                                {lat: 27.626828, lng: 85.304033},
-                                {lat:27.630998, lng: 85.306523},
-                                {lat: 27.631176, lng: 85.301329},
-                                {lat:27.629579, lng: 85.301415},
-                                {lat:27.628324, lng: 85.302789}
-
-                                ];
-                                var triangleCoords5 = [
-                                {lat: 27.736395, lng:85.312178},
-                                {lat: 27.741105, lng:85.318359},
-                                {lat: 27.754626, lng: 85.316814},
-                                {lat: 27.753562, lng: 85.304279},
-                                {lat:27.746270, lng: 85.305309}
-
-                                ];
-
-                                // Construct the polygon.
-                                var bermudaTriangle = new google.maps.Polygon({
-                                    paths: triangleCoords,
-                                    strokeColor: '#FF0000',
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 2,
-                                    fillColor: '#FF0000',
-                                    fillOpacity: 0.35
-                                    });
-                                    var bermudaTriangle2 = new google.maps.Polygon({
-                                    paths: triangleCoords2,
-                                    strokeColor: '#FF0000',
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 2,
-                                    fillColor: '#FF0000',
-                                    fillOpacity: 0.35
-                                    });
-                                    var bermudaTriangle3 = new google.maps.Polygon({
-                                    paths: triangleCoords3,
-                                    strokeColor: '#FF0000',
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 2,
-                                    fillColor: '#FF0000',
-                                    fillOpacity: 0.35
-                                    });
-                                    var bermudaTriangle4 = new google.maps.Polygon({
-                                    paths: triangleCoords4,
-                                    strokeColor: '#FF0000',
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 2,
-                                    fillColor: '#FF0000',
-                                    fillOpacity: 0.35
-                                    });
-                                    var bermudaTriangle5 = new google.maps.Polygon({
-                                    paths: triangleCoords5,
-                                    strokeColor: '#FF0000',
-                                    strokeOpacity: 0.8,
-                                    strokeWeight: 2,
-                                    fillColor: '#FF0000',
-                                    fillOpacity: 0.35
-                                    });
-                                    bermudaTriangle.setMap(map);
-                                    bermudaTriangle2.setMap(map);
-                                    bermudaTriangle3.setMap(map);
-                                    bermudaTriangle4.setMap(map);
-                                    bermudaTriangle5.setMap(map);
-                                    };
-                                    
-                                
-
-
-                            
-                                                                
-
-        
-        
-        
-        
-        
+        // Construct the circle for each value in citymap.
+        // Note: We scale the area of the circle based on the DangerLevel.
+        for (var city in data) {
+          // Add the circle for this city to the map.
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: data[city].center,
+            radius: Math.sqrt(data[city].Dangerlevel) * 1000
+          });
+          //Lower Danger
+          for (var city2 in data2) {
+          var cityCircle2 = new google.maps.Circle({
+            strokeColor: '#24f25b',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#24f25b',
+            fillOpacity: 0.17,
+            map: map,
+            center: data2[city2].center,
+            radius: Math.sqrt(data2[city2].Dangerlevel) * 1000
+          });
+          for (var city3 in data3) {
+          var cityCircle2 = new google.maps.Circle({
+            strokeColor: '#24f25b',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#24f25b',
+            fillOpacity: 0.35,
+            map: map,
+            center: data3[city3].center,
+            radius: Math.sqrt(data3[city3].Dangerlevel) * 1000
+          });
+          }
+          }
+        }
+      }
+      
+//IMp the scaling of the circles are wrong for now so relax
+// So here is the color scheme:
+//red is very very bad  bad  #8a0303
+//green is good  
+//orange : in danger #cf6006
+//yellow be careful #d1b734
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap"></script>
-</body>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap">
+    </script>
+  </body>
 </html>
+
+
