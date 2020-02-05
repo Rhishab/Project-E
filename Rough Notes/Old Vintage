@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Version 2.2</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap">
+    </script>
+    <script> 
+    function initMap(){
+        var map = new google.maps.Map(document.getElementById('map'),{
+            zoom: 12,
+          center: {lat:27.724565, lng: 85.313612},
+          mapTypeId: 'terrain'
+        });            
+        
+        var content = "You are here";
+        var infowindow = new google.maps.InfoWindow({
+            content: content
+            });
+        
+        var marker = new google.maps.Marker({
+                position: map.center,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                    }); 
+                    marker.addListener("click" , function(){
+                        infowindow.open(map,marker);
+                        });
+        // Far west Build :
+        var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.753916, lng: 85.296510},
+            radius: Math.sqrt(6)  * 1000                       
+
+            });
+            var pathRoute = new google.maps.Polyline({
+                            path: [{lat : 27.835069, lng:85.279532 },{lat : 27.863725, lng :85.336677},{lat:27.872708 , lng:85.378966}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                             });
+            var pathRoute101 = new google.maps.Polyline({
+                            path: [{lat : 27.706966, lng:85.305756 },{lat : 27.704645, lng :85.305845},{lat:27.701909, lng:85.306744}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                             });                 
+
+            var DOneMarker101 = new google.maps.Marker({
+                position: {lat: 27.753916, lng: 85.296510},
+                
+                map: map
+                }); 
+                var infowindow101 = new google.maps.InfoWindow({
+                  content: "far West"
+                  });
+                
+                DOneMarker101.addListener('click', function(){
+                  pathRoute.setMap(map);   
+                  pathRoute101.setMap(map);
+                  infowindow101.open(map,DOneMarker101);
+                  
+                })                  
+            //ENd
+            //Upper Ratnapark
+            var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.736395, lng:85.312178},
+            radius: Math.sqrt(3)  * 1000                       
+
+            });
+              //To Ratnapark route
+            var pathRoute4 = new google.maps.Polyline({
+                            path:[{lat : 27.724928, lng: 85.310421},{lat:27.717026, lng: 85.307158},{lat : 27.707422, lng: 85.315467}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                             });
+                             var infowindow201 = new google.maps.InfoWindow({
+                  content: "Upper ratnapark"
+                  });
+
+            var DOneMarker201 = new google.maps.Marker({
+                position: {lat: 27.736395, lng:85.312178},                
+                map: map
+                }); 
+                DOneMarker201.addListener('click', function(){
+                  pathRoute4.setMap(map);  
+                  infowindow201.open(map,DOneMarker201); 
+                })  
+
+            //End
+
+
+            // far East Built
+            var cityCircle2 = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat:27.710490, lng: 85.427835},
+            radius: Math.sqrt(8.4)  * 1000                       
+
+            })
+            
+            var pathRoute2 = new google.maps.Polyline({
+                            path:[{lat : 27.714011, lng: 85.268287},{lat:27.698205, lng: 85.289735},{lat : 27.662581, lng: 85.342037}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                             });
+                             var infowindow301 = new google.maps.InfoWindow({
+                  content: "far East"
+                  });
+  
+            var DOneMarker301 = new google.maps.Marker({
+                position: {lat:27.710490, lng: 85.427835},
+                
+                map: map
+                }); 
+                DOneMarker301.addListener('click', function(){
+                  pathRoute2.setMap(map); 
+                  infowindow301.open(map,DOneMarker301);  
+                })   
+
+
+            //ENd
+
+            
+
+            // near East Built
+             var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.710490, lng: 85.381037},
+            radius: Math.sqrt(6)  * 1000                       
+
+            }) ;
+           
+            var pathRoute3 = new google.maps.Polyline({
+                            path: [{lat: 27.693484, lng: 85.288448},{lat: 27.690612, lng: 85.300861},{lat:27.677712 , lng:85.348949}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                             });
+                             var infowindow401 = new google.maps.InfoWindow({
+                  content: "Near East"
+                  });
+
+            var DOneMarker401 = new google.maps.Marker({
+                position: {lat: 27.710490, lng: 85.381037},
+                
+                map: map
+                }); 
+                DOneMarker401.addListener('click', function(){
+                  pathRoute3.setMap(map); 
+                  infowindow401.open(map,DOneMarker401);
+                    
+                });
+
+
+            //End
+            
+            //Safe Zone
+             var cityCircle = new google.maps.Circle({
+            strokeColor: '#24f25b',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#24f25b',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center:  {lat: 27.626828, lng: 85.304033},
+            radius: Math.sqrt(6)  * 1000                       
+
+            })
+    };
+
+            
+
+       
+
+    
+
+
+      
+//IMp the scaling of the circles are wrong for now so relax
+// So here is the color scheme:
+//red is very very bad  bad  #8a0303
+//green is good  : #24f25b
+//orange : in danger #cf6006
+//yellow be careful #d1b734
+    </script>
+    
+  </body>
+</html>
+
+
