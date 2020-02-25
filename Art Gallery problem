@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Gallery Socrates</title>
+    <title>Artsist</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -72,7 +72,7 @@
             strokeColor: '#69e305',
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: '#69e305',
+            fillColor: '#8dd156',
             fillOpacity: 0.35,
             map: map,
             center: circlePath[city].center,
@@ -90,10 +90,78 @@
             fillOpacity: 0.35,
             map: map,
             center: circlePath[city].center,
-            radius: Math.sqrt(circlePath[city].ratio) * 1000
+            radius: Math.sqrt(circlePath[city].ratio) * 600
           });
         } 
+//      test
+//kathmandu
+var triangleCoords = [
+    {lat:27.740176, lng: 85.377655},
+    {lat:27.790032, lng: 85.365044},
+    {lat:27.755807, lng: 85.422598}
+        ];
+        //Budhanilkjantha
+        var triangleCoords2 = [
+        {lat:27.780731, lng: 85.349002},
+    {lat:27.814070, lng: 85.303006},
+    {lat:27.747009, lng: 85.286632}
+        ];
+        //
+        var triangleCoords3 = [
+        {lat:27.672858, lng: 85.422238},
+    {lat:27.683660, lng: 85.472564},
+    {lat:27.651614, lng: 85.473516}
+        ];
+        //patan
+        var triangleCoords4 = [
+        {lat:27.624663, lng: 85.290524},
+    {lat:27.623295, lng:85.348308},
+    {lat:27.673694, lng: 85.323320}
+        ];
+
+
+var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#69e305',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#69e305',
+          fillOpacity: 0.35
+        });
+        bermudaTriangle.setMap(map);
+
+        var bermudaTriangle2 = new google.maps.Polygon({
+          paths: triangleCoords2,
+          strokeColor: '#69e305',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#69e305',
+          fillOpacity: 0.35
+        });
+        bermudaTriangle2.setMap(map);
+
+        var bermudaTriangle3 = new google.maps.Polygon({
+          paths: triangleCoords3,
+          strokeColor: '#69e305',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#69e305',
+          fillOpacity: 0.35
+        });
+        bermudaTriangle3.setMap(map);
+
+        var bermudaTriangle4 = new google.maps.Polygon({
+          paths: triangleCoords4,
+          strokeColor: '#69e305',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#69e305',
+          fillOpacity: 0.35
+        });
+        bermudaTriangle4.setMap(map);
         
+// 
+        // triangulation(27.740176,85.377655,27.740176, 85.377655,27.740176, 85.377655)       
         
         
          flightPath.setMap(map);
@@ -113,15 +181,15 @@
 //           center: {lat:27.724565, lng: 85.313612},
 //           mapTypeId: 'terrain'
 //         });  
-        // var paths = [{lat:27.729418 , lng:85.301526 },{lat:27.734453 , lng:85.298435 },,{lat:27.738707 , lng:85.294837 },{lat: 27.739619, lng:85.286270 },{lat: 27.734605, lng:85.279245 },{lat: 27.728797, lng:85.282808 },
-        // {lat:27.733001 , lng: 85.264150},{lat:27.724016 , lng: 85.249039},{lat: 27.709397, lng: 85.258152},{lat:27.704753 , lng:85.250183 },{lat:27.698252 , lng:85.254288 },{lat:27.684876 , lng: 85.259426},{lat:27.664670 , lng: 85.253712},
-        // {lat: 27.654635, lng:85.263307 },{lat: 27.631859, lng:85.282148 },{lat:27.621212 , lng:85.279064 },
-        // {lat: 27.609652, lng: 85.272210},{lat:27.603098 , lng:85.281941 },{lat: 27.583929, lng:85.309699 },{lat:27.586089 , lng: 85.336691},
-        // {lat: 27.583100, lng:85.359642 },{lat:27.597963 , lng:85.350985 },{lat: 27.599617, lng:85.357046 },{lat: 27.593566, lng:85.378254 },
-        // {lat: 27.615842, lng:85.388971 },{lat:27.623599 , lng: 85.372176},{lat:27.625566 , lng:85.389563 },{lat:27.650344 , lng: 85.431611},{lat:27.641828 , lng:85.458684 },
-        // {lat:27.631791 , lng: 85.494324},{lat:27.682635 , lng: 85.506634},{lat: 27.701625, lng:85.479921 },{lat:27.715405 , lng:85.511977 },{lat:27.727865 , lng:85.478744 },
-        // {lat:27.782182 , lng: 85.467643},{lat:27.810055 , lng:85.428995 },{lat: 27.809448, lng: 85.354288},{lat: 27.805838, lng: 85.289138},{lat:27.759155 , lng:85.270318 },
-        // {lat:27.729418 , lng:85.301526 }]
+//         var paths = [{lat:27.729418 , lng:85.301526 },{lat:27.734453 , lng:85.298435 },,{lat:27.738707 , lng:85.294837 },{lat: 27.739619, lng:85.286270 },{lat: 27.734605, lng:85.279245 },{lat: 27.728797, lng:85.282808 },
+//         {lat:27.733001 , lng: 85.264150},{lat:27.724016 , lng: 85.249039},{lat: 27.709397, lng: 85.258152},{lat:27.704753 , lng:85.250183 },{lat:27.698252 , lng:85.254288 },{lat:27.684876 , lng: 85.259426},{lat:27.664670 , lng: 85.253712},
+//         {lat: 27.654635, lng:85.263307 },{lat: 27.631859, lng:85.282148 },{lat:27.621212 , lng:85.279064 },
+//         {lat: 27.609652, lng: 85.272210},{lat:27.603098 , lng:85.281941 },{lat: 27.583929, lng:85.309699 },{lat:27.586089 , lng: 85.336691},
+//         {lat: 27.583100, lng:85.359642 },{lat:27.597963 , lng:85.350985 },{lat: 27.599617, lng:85.357046 },{lat: 27.593566, lng:85.378254 },
+//         {lat: 27.615842, lng:85.388971 },{lat:27.623599 , lng: 85.372176},{lat:27.625566 , lng:85.389563 },{lat:27.650344 , lng: 85.431611},{lat:27.641828 , lng:85.458684 },
+//         {lat:27.631791 , lng: 85.494324},{lat:27.682635 , lng: 85.506634},{lat: 27.701625, lng:85.479921 },{lat:27.715405 , lng:85.511977 },{lat:27.727865 , lng:85.478744 },
+//         {lat:27.782182 , lng: 85.467643},{lat:27.810055 , lng:85.428995 },{lat: 27.809448, lng: 85.354288},{lat: 27.805838, lng: 85.289138},{lat:27.759155 , lng:85.270318 },
+//         {lat:27.729418 , lng:85.301526 }]
 //         var flightPath = new google.maps.Polyline({
 //             path: paths,
 //             geodesic: true,
@@ -153,6 +221,28 @@
 
              
 //     };
+// function triangulation(pointOnelat,onepointlng,poitTwolat,pointtwolng,pointThreelat,pointhreelng){       
+//           coord1 = {lat:pointOnelat , lng:onepointlng } 
+//           coord2 = {lat:poitTwolat , lng:pointtwolng } 
+//           coord3 = {lat:pointThreelat , lng: pointThreelat } 
+//           coord4 = coord3
+
+//   var rectangle = new google.maps.Rectangle({
+//           strokeColor: '#FF0000',
+//           strokeOpacity: 0.8,
+//           strokeWeight: 2,
+//           fillColor: '#FF0000',
+//           fillOpacity: 0.35,
+//           map: map,
+//           bounds: {
+//             north: coord1,
+//             south: coord2,
+//             east: coord3,
+//             west:  coord4,
+//           }
+//         }); 
+//         rectangle.setMap(map)
+// }
 
 
             
@@ -173,6 +263,5 @@
     
   </body>
 </html>
-
 
 
