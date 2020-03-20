@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Mr musk  </title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSD0qzwd6nVIbyg7TTDVYUZBgTVwlN75k&callback=initMap">
+    </script>
+    <script> 
+    function initMap(){
+        var map = new google.maps.Map(document.getElementById('map'),{
+            zoom: 12,
+          center: {lat:27.677847, lng: 85.319361},
+          mapTypeId: 'terrain'
+        });        
+        var content = "You are here";
+        var infowindow = new google.maps.InfoWindow({
+            content: content
+            });
+        
+        var marker = new google.maps.Marker({
+                position: {lat : 27.678093, lng : 85.320397},
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                    }); 
+                    marker.addListener("click" , function(){
+                        infowindow.open(map,marker);
+                        });
+                      
+        function circleCreate_red(coordintaeOne,coordinateTwo,DangerLevel){
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: coordintaeOne, lng: coordinateTwo},
+            radius: Math.sqrt(DangerLevel)  * 1000                       
+
+            });
+        };
+           
+         
+        // circleCreate_red(27.710490, 85.381037,6);
+        // Marker and inforWindow
+    //     function extract(PathcoOnelat,PathcoOnelng,PathcoSevenlat,PathcoSevenlng,distancezzz) {
+    //                 var faketwo = [{lat : PathcoSevenlat ,lng : PathcoOnelng}]
+    //                 var Onefinale =PathcoOnelat - PathcoOnelng;
+    //                 var base = Onefinale * 112 ;
+    //                 // console.log(base);
+         
+
+    //       Twofinale = PathcoSevenlng - PathcoOnelng;
+    //       var perpendicular = Twofinale * 112 * Math.cos(Twofinale)  ;
+    //     //   console.log(perpendicular);
+    
+    //       var hypotenuse = ( ( perpendicular^ 2) + (base ^ 2) ) ^ (1/2);
+    //       console.log(hypotenuse)
+          
+    //       return hypotenuse;
+    // };
+         
+        function marker_create(positionOne,positionTwo,title,content,PathcoOnelat,PathcoOnelng,pathcoTwolat,pathcoTwolng,pathcoThreelat,pathcoThreelng,PathcoFourlat,PathcoFourlng,
+                               PathcoFivelat,PathcoFivelng,PathcoSixlat,PathcoSixlng,PathcoSevenlat,PathcoSevenlng,distnceX){
+                                                           
+         var faketwo = [{lat : PathcoSevenlat ,lng : PathcoOnelng}]
+        var Onefinale =PathcoOnelat - PathcoOnelng;
+        var base = Onefinale * 112 ;
+    // console.log(base);
+         
+
+         Twofinale = PathcoSevenlng - PathcoOnelng;
+          var perpendicular = Twofinale * 112 * Math.cos(Twofinale)  ;
+        //   console.log(perpendicular);
+    
+          var hypotenuse = ( ( perpendicular^ 2) + (base ^ 2) ) ^ (1/2);
+          console.log(hypotenuse)
+          var disXodis = hypotenuse
+          
+          
+                       
+            var marker = new google.maps.Marker({
+                position: {lat: positionOne, lng: positionTwo},
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+                });
+                
+                var infowindow = new google.maps.InfoWindow({
+                 content: content + "  " + disXodis + " Km"
+                });
+
+               
+
+
+                var pathRoute = new google.maps.Polyline({
+                            path: [{lat: PathcoOnelat, lng: PathcoOnelng},{lat: pathcoTwolat, lng: pathcoTwolng},{lat: pathcoThreelat , lng: pathcoThreelng},
+                            {lat: PathcoFourlat, lng: PathcoFourlng}, {lat: PathcoFivelat, lng: PathcoFivelng}, {lat: PathcoSixlat, lng: PathcoSixlng},{lat: PathcoSevenlat, lng: PathcoSevenlng}],
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 5
+                             });
+
+                marker.addListener('click', function(){
+                  pathRoute.setMap(map);                    
+                  infowindow.open(map,marker);          
+                });            
+        };    
+        //far West
+        function RedOne () {
+            var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.753916, lng:  85.296510},
+            radius: Math.sqrt(6)  * 1000 
+            });
+            var distancez ;
+        //    extract( 27.699923, 85.313461,27.754101, 85.296066,distancez);
+           marker_create(27.753916, 85.296510,"Dharmastali", "Dharmastali ", 27.699923, 85.313461,27.713165, 85.317941,
+        27.722182, 85.307609,27.736826, 85.301624, 27.744135, 85.297309, 27.753769, 85.293840, 27.754101, 85.296066,27.753699, 85.293611
+           ,27.754113, 85.293962,27.754101, 85.296066,distancez);
+           
+        
+            
+    };   
+    //End
+    //Upper Ratnapark  27.718093,85.312089
+    function RedTwo(){
+        // extract(27.736395,85.312178,27.700631,85.313617,0);
+         marker_create(27.736395,85.312178,"Rani Bari","Rani Bari", 27.736138, 85.312178,27.734882, 85.312296,
+         27.721464, 85.313028 ,27.718213, 85.311329, 27.716904,85.315522, 27.713794,85.315541, 27.710054,85.314872,27.706673,85.314358
+           ,27.703443,85.313617,27.700631,85.313617,0);
+         var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.736395, lng: 85.312178},
+            radius: Math.sqrt(6)  * 1000                       
+
+            });
+    };
+    //End
+    //Lower West River
+    function RedFivve() {
+        marker_create(27.626828,85.304033,"Bungamati", "Bungamati" , 27.626828,85.304033 ,27.688337, 85.316091,27.677926, 85.316248,
+        27.673346, 85.314028,27.666770, 85.306780 ,27.659713, 85.306411,27.651749, 85.305338,27.631486, 85.305853,27.627233, 85.303345,0);
+        var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.626828, lng: 85.304033},
+            radius: Math.sqrt(6)  * 1000                      
+
+            }) 
+            }
+
+    //Far  East 
+    function Redthree(){
+        marker_create(27.710490, 85.427835,"Upper Ratnapark", "Chaungunarayan",27.713756, 85.428124,27.710851, 
+        85.423906,27.707382, 85.425814,27.697485, 85.427240,27.694597, 85.430306
+            , 27.683813,85.430372,27.675604, 85.431315,0);
+        var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.710490, lng: 85.427835},
+            radius: Math.sqrt(6)  * 1000                       
+
+            });
+            
+
+
+    };
+    //End 
+    //Whatevere 
+
+   // Near East 
+    function RedFour() {
+        marker_create(27.710490,85.381037,"Hello" ,"Near East", 27.699914, 85.313511,27.698880, 85.316500,
+        27.700489, 85.324070,27.707100, 85.329109, 27.707968, 85.339593, 27.712951, 85.345435, 27.711678, 85.354930,27.711603, 85.362858
+           ,27.711412, 85.372911,27.754113, 85.293962,0);
+        var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable : true,
+            map: map,            
+            center: {lat: 27.710490, lng: 85.381037},
+            radius: Math.sqrt(6)  * 1000                       
+
+            }) 
+            
+            
+            
+    };
+    //End
+    RedTwo();
+    RedOne();
+    Redthree();
+    RedFour();
+    RedFivve();
+
+
+       };
+
+       
+       
+      //  listener() ///Solve this and // fucking delegate
+      //marker_create(27.626828,85.304033,"Bungamati", "Bungamati",27.714011,85.268287,27.698205,85.289735, 27.662581,85.342037 );
+
+       
+
+
+            //End
+            
+    
+        
+  
+            // New Safe location : godavari forest 
+
+
+       
+
+    
+
+
+      // Write this ocde in notebook , comapre it write its advntage and it's disadvantages or issus to be solved
+// Delegate man , solve the clean re-usable function issues 
+// So here is the color scheme:
+//red is very very bad  bad  #8a0303
+//green is good  : #24f25b
+//orange : in danger #cf6006
+//yellow be careful #d1b734
+    </script>
+    
+  </body>
+</html>
+
+
